@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+    <link rel="stylesheet" type="text/css" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="../css/mdb.min.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
+    <script src="../js/auth.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="menu-head">
+            <div class="animated bounceInLeft p-3">
+                <p class="logo m-0">TM-aggregator</p>
+                <p class="slogan m-0">Your assistant in the time organization</p>
+            </div>
+            <ul class="menu-list small_display_false">
+                <li>
+                    <a href="../index.html" class="sections">Home</a>
+                </li>
+                <li>
+                    <a href="methods.html" class="sections">Methods</a>
+                <li>
+                    <a href="contacts.html" class="sections">Contact</a>
+                </li>
+                <li>
+                    <a href="auth.html" class="sections">Account</a>
+                </li>
+            </ul>
+            <div class="menu-burger__header big_display_none">
+                <span></span>
+            </div>
+
+        </nav>
+        <nav class="header__nav big_display_none">
+            <ul class="menu header__menu">
+                <li><a href="../index.html" class="menu__item">Home</a></li>
+                <li><a href="methods.html" class="menu__item">Methods</a></li>
+                <li><a href="contacts.html" class="menu__item">Contact</a></li>
+                <li><a href="auth.html" class="menu__item">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <div id='tabs'>
+            <div id='tabs_container'>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active tab_button_small" onclick="change_tab(0)" id="home-tab"
+                            data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                            aria-selected="true">User</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link tab_button_small" onclick="change_tab(1)" id="profile-tab"
+                            data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">Tarrif</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link tab_button_small" onclick="change_tab(2)" id="contact-tab"
+                            data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
+                            aria-selected="false">Card</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+    
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div>
+                    <div class="col-12 center">
+                        <h1 class="margin-auto">User</h1>
+                    </div>
+                    <form>
+                        <div>
+                            <div class="col-8 center  flex_columns">
+                                <div class="col-6 small_display_false">
+                                    <div class="form_block">
+                                        <span>First name</span>
+                                        <input class="form-control" id="first" type="text" onblur="checkFirst();" required>
+                                        <span id="first_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Last name</span>
+                                        <input class="form-control" id="last" type="text" onblur="checkLast();" required>
+                                        <span id="last_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Birthday</span>
+                                        <input class="form-control" id="date" type="date" required="">
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Email</span>
+                                        <input class="form-control" id="email" type="text" onblur="checkEmail();" required>
+                                        <span id="email_Check"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6 small_display_false">
+                                    <div class="form_block">
+                                        <span>Sex</span><br>
+                                        <input type="radio" name="fav_language" value="CSS" class="radio_button"
+                                            required><span> Male</span>
+                                        <input type="radio" name="fav_language" value="CSS" class="radio_button"><span>
+                                            Female</span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Payment method</span><br>
+                                        <select class="form-control" name="paymethod" id="paymethod" required>
+                                            <option>Cash</option>
+                                            <option>Card</option>
+                                            <option>PayPal</option>
+                                        </select>
+    
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Password</span>
+                                        <input class="form-control" id="pswd" type="password" onblur="checkPassword();"
+                                            required>
+                                        <span id="pswd_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Repeat password</span>
+                                        <input class="form-control" id="pswd2" type="password" onblur="check();" required>
+    
+                                        <span id="pswd_check_2"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <input type="submit" value="Next Section" id="summary" action="#tarrif">
+                                    </div>
+    
+                                </div>
+                                <div class="big_display_none">
+                                    <div class="form_block">
+                                        <span>First name</span>
+                                        <input class="form-control" id="first" type="text" onblur="checkFirst();" required>
+                                        <span id="first_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Last name</span>
+                                        <input class="form-control" id="last" type="text" onblur="checkLast();" required>
+                                        <span id="last_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Birthday</span>
+                                        <input class="form-control" id="date" type="date" required="">
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Email</span>
+                                        <input class="form-control" id="email" type="text" onblur="checkEmail();" required>
+                                        <span id="email_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Sex</span><br>
+                                        <input type="radio" name="fav_language" value="CSS" class="radio_button"
+                                            required><span> Male</span>
+                                        <input type="radio" name="fav_language" value="CSS" class="radio_button"><span>
+                                            Female</span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Payment method</span><br>
+                                        <select class="form-control" name="paymethod" id="paymethod" required>
+                                            <option>Cash</option>
+                                            <option>Card</option>
+                                            <option>PayPal</option>
+                                        </select>
+    
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Password</span>
+                                        <input class="form-control" id="pswd" type="password" onblur="checkPassword();"
+                                            required>
+                                        <span id="pswd_Check"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <span>Repeat password</span>
+                                        <input class="form-control" id="pswd2" type="password" onblur="check();" required>
+    
+                                        <span id="pswd_check_2"></span>
+                                    </div>
+                                    <div class="form_block">
+                                        <input type="submit" value="Next Section" id="summary" action="#">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div>
+                    <div class="col-12 center">
+                        <h1 class="margin-auto" id="tarrif">Tarrif</h1>
+                    </div>
+                    <form>
+                        <div class="d-flex align-items-center justify-content-center flex-wrap">
+                            <div class="mb-3 mx-3">
+                                <div class="panel tab_active small_panel" onclick="choose_tarif(0)" id="tarif_1">
+                                    <div style="text-align: center;">
+                                        <h3 style="margin: auto;">Personal</h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <span style="margin: auto;">Description of personal tarrif</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 mx-3">
+                                <div class="panel small_panel" onclick="choose_tarif(1)" id="tarif_2">
+                                    <div style="text-align: center;">
+                                        <h3 style="margin: auto;">Family</h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <span style="margin: auto;">Description of family tarrif</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 mx-3">
+                                <div class="panel small_panel" onclick="choose_tarif(2)" id="tarif_3">
+                                    <div style="text-align: center;">
+                                        <h3 style="margin: auto;">Business</h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <span style="margin: auto;">Description of business tarrif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form_block">
+                                <input type="submit" value="Next Section" id="summary" action="#contact">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    
+    
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="center p-4 justify-content-center">
+                    <div class="row">
+                        <div class="col-12 center" style="display: flex; flex-direction: column;">
+                            <div class="col-12">
+                                <div class="payment-title">
+                                    <h1 class="margin-auto">Payment Information</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="container preload p-0">
+                                    <div class="creditcard" style="margin: auto; margin-top: 0px;">
+                                        <div class="front">
+                                            <div id="ccsingle"></div>
+                                            <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;"
+                                                xml:space="preserve">
+                                                <g id="Front">
+                                                    <g id="CardBackground">
+                                                        <g id="Page-1_1_">
+                                                            <g id="amex_1_">
+                                                                <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                            C0,17.9,17.9,0,40,0z" />
+                                                            </g>
+                                                        </g>
+                                                        <path class="darkcolor greydark"
+                                                            d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+                                                    </g>
+                                                    <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber"
+                                                        class="st2 st3 st4">0123 4567 8910
+                                                        1112</text>
+                                                    <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname"
+                                                        class="st2 st5 st6">JOHN DOE</text>
+                                                    <text transform="matrix(1 0 0 1 54.1074 389.8793)"
+                                                        class="st7 st5 st8">cardholder
+                                                        name</text>
+                                                    <text transform="matrix(1 0 0 1 479.7754 388.8793)"
+                                                        class="st7 st5 st8">expiration</text>
+                                                    <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card
+                                                        number</text>
+                                                    <g>
+                                                        <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire"
+                                                            class="st2 st5 st9">01/23</text>
+                                                        <text transform="matrix(1 0 0 1 479.3848 417.0097)"
+                                                            class="st2 st10 st11">VALID</text>
+                                                        <text transform="matrix(1 0 0 1 479.3848 435.6762)"
+                                                            class="st2 st10 st11">THRU</text>
+                                                        <polygon class="st2"
+                                                            points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                                                    </g>
+                                                    <g id="cchip">
+                                                        <g>
+                                                            <path class="st2" d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                                        c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+                                                        </g>
+                                                        <g>
+                                                            <g>
+                                                                <rect x="82" y="70" class="st12" width="1.5" height="60" />
+                                                            </g>
+                                                            <g>
+                                                                <rect x="167.4" y="70" class="st12" width="1.5"
+                                                                    height="60" />
+                                                            </g>
+                                                            <g>
+                                                                <path class="st12" d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                                            c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                                            C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                                            c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                                            c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
+                                                            </g>
+                                                            <g>
+                                                                <rect x="82.8" y="82.1" class="st12" width="25.8"
+                                                                    height="1.5" />
+                                                            </g>
+                                                            <g>
+                                                                <rect x="82.8" y="117.9" class="st12" width="26.1"
+                                                                    height="1.5" />
+                                                            </g>
+                                                            <g>
+                                                                <rect x="142.4" y="82.1" class="st12" width="25.8"
+                                                                    height="1.5" />
+                                                            </g>
+                                                            <g>
+                                                                <rect x="142" y="117.9" class="st12" width="26.2"
+                                                                    height="1.5" />
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                                <g id="Back">
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="back">
+                                            <svg version="1.1" id="cardback" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;"
+                                                xml:space="preserve">
+                                                <g id="Front">
+                                                    <line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
+                                                </g>
+                                                <g id="Back">
+                                                    <g id="Page-1_2_">
+                                                        <g id="amex_2_">
+                                                            <path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                        C0,17.9,17.9,0,40,0z" />
+                                                        </g>
+                                                    </g>
+                                                    <rect y="61.6" class="st2" width="750" height="78" />
+                                                    <g>
+                                                        <path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+                                    C707.1,246.4,704.4,249.1,701.1,249.1z" />
+                                                        <rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5" />
+                                                        <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
+                                                        <path class="st5"
+                                                            d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
+                                                    </g>
+                                                    <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity"
+                                                        class="st6 st7">985</text>
+                                                    <g class="st8">
+                                                        <text transform="matrix(1 0 0 1 518.083 280.0879)"
+                                                            class="st9 st6 st10">security
+                                                            code</text>
+                                                    </g>
+                                                    <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
+                                                    <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
+                                                    <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback"
+                                                        class="st12 st13">John Doe</text>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-container">
+                            <div class="field-container">
+                                <label for="name">Name</label>
+                                <input id="name" maxlength="20" type="text">
+                            </div>
+                            <div class="field-container">
+                                <div class="d-flex">
+                                    <label for="cardnumber">Card Number</label>
+                                    <span id="generatecard" class="ml-auto">generate random</span>
+                                </div>
+                                <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            <div class="field-container">
+                                <label for="expirationdate">Expiration (mm/yy)</label>
+                                <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            <div class="field-container">
+                                <label for="securitycode">Security Code</label>
+                                <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Finish registration" id="summary" action="#contact">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-light text-muted">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+              <!-- Left -->
+              <div class="me-5 d-none d-lg-block">
+                <span>Contact us on social media:</span>
+              </div>
+              <!-- Left -->
+      
+              <!-- Right -->
+              <div>
+                <a href="" class="me-4 text-reset">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                  <i class="fab fa-twitter"></i>
+                </a>
+      
+                <a href="" class="text-reset">
+                  <i class="fab fa-instagram"></i>
+                </a>
+      
+              </div>
+              <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+      
+            <!-- Section: Links  -->
+            <section class="">
+              <div class="container text-center text-md-start mt-5" style="height: auto; max-height: 100%;">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                      <span class="fas fa-gem me-3"></span>TMGroup
+                    </h6>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua.
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+      
+                  <!-- Grid column -->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+      
+                  </div>
+                  <!-- Grid column -->
+      
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+      
+                  </div>
+                  <!-- Grid column -->
+      
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                      Contacts:
+                    </h6>
+                    <p><span class="fas fa-home me-3"></span> Yekaterinburg, Russia</p>
+                    <p>
+                      <span class="fas fa-envelope me-3"></span>
+                      info@example.com
+                    </p>
+                    <p><span class="fas fa-phone me-3"></span> + 7(000) 000 00 00</p>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+              </div>
+            </section>
+            <!-- Section: Links  -->
+      
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+              A better life is possible! <br> &copyTMGroup, 2021
+            </div>
+            <!-- Copyright -->
+          </footer>
+        <!-- Footer -->
+    </div>
+    
+
+</body>
